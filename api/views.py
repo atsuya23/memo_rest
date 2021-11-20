@@ -3,7 +3,12 @@ from rest_framework import generics
 from rest_framework import viewsets
 
 from .models import Memo
-from .serializers import MemoSerializer
+from .serializers import MemoSerializer, UserSerializer
+
+
+class CreateUserView(generics.CreateAPIView):
+    serializer_class = UserSerializer
+    permission_classes = (AllowAny,)
 
 
 class MemoViewSet(viewsets.ModelViewSet):
